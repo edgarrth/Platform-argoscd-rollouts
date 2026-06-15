@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: online-boutique # puede tener N applications (N microservicios/componentes)
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1" # anotacion para indicar prioridad entre varios yamls renderizados
+spec:
+  sourceRepos: # whitelist de repos permitidos
+    - http://gitea:3000/root/repo-infra.git
+  destinations: # cluster donde se aplicaran los sync
+    - namespace: default
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
