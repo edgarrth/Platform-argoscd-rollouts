@@ -76,7 +76,7 @@ Y para usarlo localmente:
 
     argocd login localhost:8080 --insecure
 
-## Argos Rollout CLI
+## Argo Rollout CLI
     
     curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
 
